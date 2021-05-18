@@ -1,6 +1,4 @@
 import java.io.File;
-import java.io.FileFilter;
-import java.text.SimpleDateFormat;
 
 public class Archivos {
     public static final String ANSI_RESET = "\u001B[0m";
@@ -25,57 +23,7 @@ public class Archivos {
                 System.out.println(listado[i]);
             }
         }
-
-        //Lo mismo que lo anterior pero con objetos File para poder ver sus propiedades
-        System.out.println(ANSI_RED + "//// LISTADO CON OBJETOS File" + ANSI_RESET);
-
-        File[] archivos = carpeta.listFiles();
-        if (archivos == null || archivos.length == 0) {
-            System.out.println("No hay elementos dentro de la carpeta actual");
-            return;
-        }
-        else {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            for (int i=0; i< archivos.length; i++) {
-                File archivo = archivos[i];
-                System.out.println(String.format("%s (%s) - %d - %s",
-                        archivo.getName(),
-                        archivo.isDirectory() ? "Carpeta" : "Archivo",
-                        archivo.length(),
-                        sdf.format(archivo.lastModified())
-                ));
-            }
-        }
-
-        //Se pueden filtrar los resultados tanto usando list() como usando listFiles()
-        //Por ejemplo, en este segundo caso para mostrar solo archivos y no carpetas
-        System.out.println(ANSI_RED + "//// LISTADO CON FILTRO APLICADO - SOLO ARCHIVOS" + ANSI_RESET);
-
-        FileFilter filtro = new FileFilter() {
-            @Override
-            public boolean accept(File arch) {
-                return arch.isFile();
-            }
-        };
-
-        archivos = carpeta.listFiles(filtro);
-
-        if (archivos == null || archivos.length == 0) {
-            System.out.println("No hay elementos dentro de la carpeta actual");
-            return;
-        }
-        else {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            for (int i=0; i< archivos.length; i++) {
-                File archivo = archivos[i];
-                System.out.println(String.format("%s (%s) - %d - %s",
-                        archivo.getName(),
-                        archivo.isDirectory() ? "Carpeta" : "Archivo",
-                        archivo.length(),
-                        sdf.format(archivo.lastModified())
-                ));
-            }
-        }
+        
     }
 }
 
