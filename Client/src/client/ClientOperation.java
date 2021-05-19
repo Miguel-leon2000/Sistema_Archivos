@@ -17,8 +17,8 @@ public class ClientOperation {
     public static void main(String[] args)
             throws MalformedURLException, RemoteException, NotBoundException {
 
-        look_up = (RMIInterface) Naming.lookup("//localhost/MyServer");
-        String ruta = JOptionPane.showInputDialog("Que ruta mostrar");
+        look_up = (RMIInterface) Naming.lookup("//85.187.158.121:1099/MyServer");
+        String ruta = JOptionPane.showInputDialog("¿Que ruta mostrar?");
 
         //String response = look_up.helloTo(txt);
         ArrayList<String> response = look_up.obtenerArchivos(ruta);

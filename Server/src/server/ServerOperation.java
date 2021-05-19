@@ -48,7 +48,7 @@ public class ServerOperation extends UnicastRemoteObject implements RMIInterface
 
     public static void main(String[] args){
         try {
-            Naming.rebind("//localhost/MyServer", new ServerOperation());
+            Naming.rebind("//85.187.158.121:1099/MyServer", new ServerOperation());
             System.err.println("Server ready");
         } catch (Exception e) {
             System.err.println("Server exception: " + e.toString());
